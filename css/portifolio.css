@@ -1,0 +1,494 @@
+:root {
+  --primary: #00c3cb;
+  --primary-dark: #00a8af;
+  --primary-light: #33cfd6;
+  --secondary: #ff6bb0;
+  --secondary-dark: #e0558f;
+  --secondary-light: #ff8ecc;
+  --dark: #0a1a2a;
+  --light: #ffffff;
+  --gray: rgba(0, 195, 203, 0.1);
+  --gray-light: rgba(0, 195, 203, 0.15);
+  --background: linear-gradient(135deg, #0a1a2a 0%, #0f2a3e 50%, #143a52 100%);
+  --card-bg: rgba(0, 195, 203, 0.08);
+  --text-primary: #e6f7f8;
+  --text-secondary: rgba(230, 247, 248, 0.8);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background: var(--background);
+    color: var(--text-primary);
+    padding-bottom: 60px;
+}
+
+.container-menu {
+    width: 80%;
+    margin: 0 auto;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.container {
+    width: 80%;
+    margin: 0 auto;
+    overflow: hidden;
+}
+
+.logo {
+    float: left;
+    width: 200px;
+    height: 200px;
+    background-image: url('../images/logo1.png');
+    background-size: cover;
+    background-position: center;
+    transition: all 0.3s ease-in-out;
+    filter: brightness(1);
+}
+
+.logo:hover {
+    filter: brightness(5) drop-shadow(0 0 10px rgb(85, 224, 224)) 
+                     drop-shadow(0 0 20px rgb(85, 224, 224))
+                     drop-shadow(0 0 30px rgb(85, 224, 224));
+    transform: scale(1.05);
+}
+
+
+
+
+nav ul {
+    list-style: none;
+    font-size: 25px;
+    padding: 0;
+    margin: 0;
+}
+
+nav ul li {
+    display: inline;
+}
+
+nav ul li a {
+    color: var(--text-primary);
+    text-decoration: none;
+    padding: 15px 30px;
+    display: inline-block;
+    transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out;
+    border-radius: 5px;
+}
+
+nav ul li a:hover {
+    background-color: var(--primary);
+    color: var(--light);
+}
+
+
+/* Botões de filtro estilizados - mantendo a estrutura HTML existente */
+.filter-buttons {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.filter-btn {
+    margin: 0 5px;
+    padding: 12px 24px;
+    background: linear-gradient(145deg, #ffffffde, #e6e6e6e7);
+    color: #2d3748;
+    border: none;
+    border-radius: 0.7rem;
+    text-decoration: none;
+    display: inline-block;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-weight: 500;
+    font-family: inherit;
+    box-shadow:
+        3px 3px 6px rgba(0, 0, 0, 0.1),
+        -3px -3px 6px rgba(255, 255, 255, 0.7);
+    position: relative;
+    overflow: hidden;
+}
+
+.filter-btn:hover {
+    background: linear-gradient(145deg, #f0f0f0, #ffffff);
+    transform: translateY(-2px);
+    box-shadow:
+        4px 4px 8px rgba(0, 0, 0, 0.1),
+        -4px -4px 8px rgba(255, 255, 255, 0.8);
+    color: #2d3748;
+}
+
+.filter-btn.active {
+    background: linear-gradient(145deg, var(--primary, #00c3cb), var(--primary-dark, #01b8be));
+    color: white;
+    font-weight: 600;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+    box-shadow:
+        inset 2px 2px 5px rgba(0, 0, 0, 0.2),
+        inset -2px -2px 5px rgba(255, 255, 255, 0.1),
+        3px 3px 8px rgba(59, 130, 246, 0.3);
+    transform: translateY(2px);
+    animation: select 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Container dos botões com efeito glassmorphism */
+.filter-buttons {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    border-radius: 1rem;
+    background: linear-gradient(145deg, rgba(0, 195, 203, 0.1), rgba(255, 107, 176, 0.1));
+    box-sizing: border-box;
+    box-shadow:
+        5px 5px 15px rgba(0, 0, 0, 0.3),
+        -5px -5px 15px rgba(0, 195, 203, 0.1);
+    padding: 0.8rem;
+    max-width: 400px;
+    font-size: 14px;
+    gap: 0.5rem;
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(0, 195, 203, 0.2);
+    margin: 20px auto;
+}
+
+/* Efeitos de partículas para botão ativo */
+.filter-btn.active::before,
+.filter-btn.active::after {
+    content: "";
+    position: absolute;
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    opacity: 0;
+    pointer-events: none;
+    animation: particles 0.8s ease-out forwards;
+}
+
+.filter-btn.active::before {
+    background: var(--primary, #00c3cb);
+    box-shadow: 0 0 6px var(--primary, #00c3cb);
+    top: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.filter-btn.active::after {
+    background: #93fbff;
+    box-shadow: 0 0 8px #93fbff;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+/* Efeito de sparkle para botão ativo */
+.filter-btn.active::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    background: radial-gradient(
+        circle at var(--x, 50%) var(--y, 50%),
+        var(--primary, #00c3cb) 0%,
+        transparent 50%
+    );
+    opacity: 0;
+    animation: sparkle-bg 1s ease-out forwards;
+}
+
+/* Múltiplas partículas */
+.filter-btn.active {
+    overflow: visible;
+}
+
+.filter-btn.active::before {
+    box-shadow:
+        0 0 6px var(--primary, #00c3cb),
+        10px -10px 0 var(--primary, #00c3cb),
+        -10px -10px 0 var(--primary, #00c3cb);
+    animation: multi-particles-top 0.8s ease-out forwards;
+}
+
+.filter-btn.active::after {
+    box-shadow:
+        0 0 8px #93fbff,
+        10px 10px 0 #93fbff,
+        -10px 10px 0 #93fbff;
+    animation: multi-particles-bottom 0.8s ease-out forwards;
+}
+
+/* Efeito ripple */
+.filter-btn::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    background: radial-gradient(
+        circle at var(--x, 50%) var(--y, 50%),
+        rgba(255, 255, 255, 0.5) 0%,
+        transparent 50%
+    );
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+
+.filter-btn.active::before {
+    animation: ripple 0.8s ease-out;
+}
+
+/* Borda brilhante */
+.filter-btn.active {
+    position: relative;
+}
+
+.filter-btn.active::after {
+    content: "";
+    position: absolute;
+    inset: -2px;
+    border-radius: inherit;
+    background: linear-gradient(
+        45deg,
+        rgba(59, 130, 246, 0.5),
+        rgba(37, 99, 235, 0.5)
+    );
+    -webkit-mask:
+        linear-gradient(#fff 0 0) content-box,
+        linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    animation: border-glow 1.5s ease-in-out infinite alternate;
+}
+
+/* Animações */
+@keyframes select {
+    0% {
+        transform: scale(0.95) translateY(2px);
+    }
+    50% {
+        transform: scale(1.05) translateY(-1px);
+    }
+    100% {
+        transform: scale(1) translateY(2px);
+    }
+}
+
+@keyframes multi-particles-top {
+    0% {
+        opacity: 1;
+        transform: translateX(-50%) translateY(0) scale(1);
+    }
+    40% {
+        opacity: 0.8;
+    }
+    100% {
+        opacity: 0;
+        transform: translateX(-50%) translateY(-20px) scale(0);
+        box-shadow:
+            0 0 6px transparent,
+            20px -20px 0 transparent,
+            -20px -20px 0 transparent;
+    }
+}
+
+@keyframes multi-particles-bottom {
+    0% {
+        opacity: 1;
+        transform: translateX(-50%) translateY(0) scale(1);
+    }
+    40% {
+        opacity: 0.8;
+    }
+    100% {
+        opacity: 0;
+        transform: translateX(-50%) translateY(20px) scale(0);
+        box-shadow:
+            0 0 8px transparent,
+            20px 20px 0 transparent,
+            -20px 20px 0 transparent;
+    }
+}
+
+@keyframes sparkle-bg {
+    0% {
+        opacity: 0;
+        transform: scale(0.2);
+    }
+    50% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+        transform: scale(2);
+    }
+}
+
+@keyframes ripple {
+    0% {
+        opacity: 1;
+        transform: scale(0.2);
+    }
+    50% {
+        opacity: 0.5;
+    }
+    100% {
+        opacity: 0;
+        transform: scale(2.5);
+    }
+}
+
+@keyframes border-glow {
+    0% {
+        opacity: 0.5;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+/* Para o botão hover quando está ativo */
+.filter-btn.active:hover {
+    transform: translateY(1px);
+}
+
+.titulo {
+    text-align: center;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    color: var(--text-primary);
+}
+
+.galeria {
+    background-color: var(--card-bg);
+    margin-top: 10px;
+    margin-bottom: 10px;
+    margin-left: 500px;
+    margin-right: 500px;
+    border-radius: 15px;
+    padding: 20px;
+    border: 1px solid rgba(0, 195, 203, 0.2);
+}
+
+.projects {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.project {
+    position: relative;
+    margin: 15px;
+    width: 300px;
+    height: 200px;
+}
+
+.project-thumbnail {
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+    height: 100%;
+    cursor: pointer;
+    transition: transform 0.3s ease-in-out;
+    border-radius: 15px;
+    margin-top: 20px;
+}
+
+.project-thumbnail img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.project-thumbnail:hover {
+    transform: scale(1.05);
+}
+
+.project-title {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: rgba(0, 0, 0, 0.6);
+    color: var(--light);
+    padding: 10px;
+    text-align: center;
+    font-size: 1.2em;
+    transition: background 0.3s ease-in-out;
+}
+
+.project-title:hover {
+    background: rgba(0, 0, 0, 0.8);
+}
+
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+}
+
+.modal-content {
+    background: var(--dark);
+    padding: 20px;
+    border-radius: 10px;
+    width: 80%;
+    max-width: 600px;
+    position: relative;
+    border: 1px solid rgba(0, 195, 203, 0.3);
+}
+
+.close-button {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 24px;
+    cursor: pointer;
+    color: var(--text-primary);
+}
+
+.cta-button {
+    display: inline-block;
+    background: var(--light);
+    color: var(--dark);
+    padding: 10px 20px;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: all 0.3s ease;
+}
+
+.cta-button:hover {
+    background: var(--primary);
+    color: var(--light);
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    .galeria {
+        margin-left: 20px;
+        margin-right: 20px;
+    }
+    
+    .container-menu, .container {
+        width: 95%;
+    }
+    
+    nav ul {
+        font-size: 18px;
+    }
+    
+    nav ul li a {
+        padding: 10px 15px;
+    }
+}

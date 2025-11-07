@@ -1,0 +1,617 @@
+:root {
+  --primary: #00c3cb;
+  --primary-dark: #00a8af;
+  --primary-light: #33cfd6;
+  --secondary: #ff6bb0;
+  --secondary-dark: #e0558f;
+  --secondary-light: #ff8ecc;
+  --dark: #0a1a2a;
+  --light: #ffffff;
+  --gray: rgba(0, 195, 203, 0.1);
+  --gray-light: rgba(0, 195, 203, 0.15);
+  --background: linear-gradient(135deg, #0a1a2a 0%, #0f2a3e 50%, #143a52 100%);
+  --background2: linear-gradient(135deg, #04101bc9 0%, #0b141bd2 50%, #03121b9c 100%);
+  --card-bg: rgba(0, 195, 203, 0.08);
+  --text-primary: #e6f7f8;
+  --text-secondary: rgba(230, 247, 248, 0.8);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background: var(--background);
+    color: var(--text-primary);
+    padding-bottom: 60px;
+}
+
+.container-menu {
+    width: 80%;
+    margin: 0 auto;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.container {
+    width: 80%;
+    margin: 0 auto;
+    overflow: hidden;
+}
+
+.logo {
+    float: left;
+    width: 200px;
+    height: 200px;
+    background-image: url('../images/logo1.png');
+    background-size: cover;
+    background-position: center;
+    transition: all 0.3s ease-in-out;
+    filter: brightness(1);
+}
+
+.logo:hover {
+    filter: brightness(5) drop-shadow(0 0 10px rgb(85, 224, 224)) 
+                     drop-shadow(0 0 20px rgb(85, 224, 224))
+                     drop-shadow(0 0 30px rgb(85, 224, 224));
+    transform: scale(1.05);
+}
+
+nav ul {
+    list-style: none;
+    font-size: 25px;
+    padding: 0;
+    margin: 0;
+}
+
+nav ul li {
+    display: inline;
+}
+
+nav ul li a {
+    color: var(--text-primary);
+    text-decoration: none;
+    padding: 15px 30px;
+    display: inline-block;
+    transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out;
+    border-radius: 5px;
+}
+
+nav ul li a:hover {
+    background-color: var(--primary);
+    color: var(--light);
+}
+
+/* Botões de filtro estilizados - mantendo a estrutura HTML existente */
+.filter-buttons {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.filter-btn {
+    margin: 0 5px;
+    padding: 12px 24px;
+    background: linear-gradient(145deg, #ffffffde, #e6e6e6e7);
+    color: #2d3748;
+    border: none;
+    border-radius: 0.7rem;
+    text-decoration: none;
+    display: inline-block;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-weight: 500;
+    font-family: inherit;
+    box-shadow:
+        3px 3px 6px rgba(0, 0, 0, 0.1),
+        -3px -3px 6px rgba(255, 255, 255, 0.7);
+    position: relative;
+    overflow: hidden;
+}
+
+.filter-btn:hover {
+    background: linear-gradient(145deg, #f0f0f0, #ffffff);
+    transform: translateY(-2px);
+    box-shadow:
+        4px 4px 8px rgba(0, 0, 0, 0.1),
+        -4px -4px 8px rgba(255, 255, 255, 0.8);
+    color: #2d3748;
+}
+
+.filter-btn.active {
+    background: linear-gradient(145deg, var(--primary, #00c3cb), var(--primary-dark, #01b8be));
+    color: white;
+    font-weight: 600;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+    box-shadow:
+        inset 2px 2px 5px rgba(0, 0, 0, 0.2),
+        inset -2px -2px 5px rgba(255, 255, 255, 0.1),
+        3px 3px 8px rgba(59, 130, 246, 0.3);
+    transform: translateY(2px);
+    animation: select 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Container dos botões com efeito glassmorphism */
+.filter-buttons {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    border-radius: 1rem;
+    background: linear-gradient(145deg, rgba(0, 195, 203, 0.1), rgba(255, 107, 176, 0.1));
+    box-sizing: border-box;
+    box-shadow:
+        5px 5px 15px rgba(0, 0, 0, 0.3),
+        -5px -5px 15px rgba(0, 195, 203, 0.1);
+    padding: 0.8rem;
+    max-width: 400px;
+    font-size: 14px;
+    gap: 0.5rem;
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(0, 195, 203, 0.2);
+    margin: 20px auto;
+}
+
+/* Efeitos de partículas para botão ativo */
+.filter-btn.active::before,
+.filter-btn.active::after {
+    content: "";
+    position: absolute;
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    opacity: 0;
+    pointer-events: none;
+    animation: particles 0.8s ease-out forwards;
+}
+
+.filter-btn.active::before {
+    background: var(--primary, #00c3cb);
+    box-shadow: 0 0 6px var(--primary, #00c3cb);
+    top: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.filter-btn.active::after {
+    background: #93fbff;
+    box-shadow: 0 0 8px #93fbff;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+/* Efeito de sparkle para botão ativo */
+.filter-btn.active::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    background: radial-gradient(
+        circle at var(--x, 50%) var(--y, 50%),
+        var(--primary, #00c3cb) 0%,
+        transparent 50%
+    );
+    opacity: 0;
+    animation: sparkle-bg 1s ease-out forwards;
+}
+
+/* Múltiplas partículas */
+.filter-btn.active {
+    overflow: visible;
+}
+
+.filter-btn.active::before {
+    box-shadow:
+        0 0 6px var(--primary, #00c3cb),
+        10px -10px 0 var(--primary, #00c3cb),
+        -10px -10px 0 var(--primary, #00c3cb);
+    animation: multi-particles-top 0.8s ease-out forwards;
+}
+
+.filter-btn.active::after {
+    box-shadow:
+        0 0 8px #93fbff,
+        10px 10px 0 #93fbff,
+        -10px 10px 0 #93fbff;
+    animation: multi-particles-bottom 0.8s ease-out forwards;
+}
+
+/* Efeito ripple */
+.filter-btn::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    background: radial-gradient(
+        circle at var(--x, 50%) var(--y, 50%),
+        rgba(255, 255, 255, 0.5) 0%,
+        transparent 50%
+    );
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+
+.filter-btn.active::before {
+    animation: ripple 0.8s ease-out;
+}
+
+/* Borda brilhante */
+.filter-btn.active {
+    position: relative;
+}
+
+.filter-btn.active::after {
+    content: "";
+    position: absolute;
+    inset: -2px;
+    border-radius: inherit;
+    background: linear-gradient(
+        45deg,
+        rgba(59, 130, 246, 0.5),
+        rgba(37, 99, 235, 0.5)
+    );
+    -webkit-mask:
+        linear-gradient(#fff 0 0) content-box,
+        linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    animation: border-glow 1.5s ease-in-out infinite alternate;
+}
+
+/* Animações */
+@keyframes select {
+    0% {
+        transform: scale(0.95) translateY(2px);
+    }
+    50% {
+        transform: scale(1.05) translateY(-1px);
+    }
+    100% {
+        transform: scale(1) translateY(2px);
+    }
+}
+
+@keyframes multi-particles-top {
+    0% {
+        opacity: 1;
+        transform: translateX(-50%) translateY(0) scale(1);
+    }
+    40% {
+        opacity: 0.8;
+    }
+    100% {
+        opacity: 0;
+        transform: translateX(-50%) translateY(-20px) scale(0);
+        box-shadow:
+            0 0 6px transparent,
+            20px -20px 0 transparent,
+            -20px -20px 0 transparent;
+    }
+}
+
+@keyframes multi-particles-bottom {
+    0% {
+        opacity: 1;
+        transform: translateX(-50%) translateY(0) scale(1);
+    }
+    40% {
+        opacity: 0.8;
+    }
+    100% {
+        opacity: 0;
+        transform: translateX(-50%) translateY(20px) scale(0);
+        box-shadow:
+            0 0 8px transparent,
+            20px 20px 0 transparent,
+            -20px 20px 0 transparent;
+    }
+}
+
+@keyframes sparkle-bg {
+    0% {
+        opacity: 0;
+        transform: scale(0.2);
+    }
+    50% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+        transform: scale(2);
+    }
+}
+
+@keyframes ripple {
+    0% {
+        opacity: 1;
+        transform: scale(0.2);
+    }
+    50% {
+        opacity: 0.5;
+    }
+    100% {
+        opacity: 0;
+        transform: scale(2.5);
+    }
+}
+
+@keyframes border-glow {
+    0% {
+        opacity: 0.5;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+/* Para o botão hover quando está ativo */
+.filter-btn.active:hover {
+    transform: translateY(1px);
+}
+
+.contato {
+    margin-top: 10px;
+    width: 80%;
+    margin: 10px auto;
+    padding: 25px;
+    border-radius: 15px;
+    background: rgba(10, 26, 42, 0.7); /* fundo translúcido com base na cor --dark */
+    box-shadow:
+        0 4px 20px rgba(0, 195, 203, 0.15),
+        inset 0 0 10px rgba(0, 195, 203, 0.1);
+    border: 1px solid rgba(0, 195, 203, 0.25);
+    backdrop-filter: blur(10px); /* efeito glassmorphism */
+    color: var(--text-primary);
+    transition: all 0.3s ease;
+}
+
+.contato:hover {
+    box-shadow:
+        0 6px 25px rgba(0, 195, 203, 0.25),
+        inset 0 0 15px rgba(0, 195, 203, 0.15);
+    transform: translateY(-2px);
+}
+
+/* Labels e inputs adaptados à nova paleta */
+.contato label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: bold;
+    color: var(--text-secondary);
+}
+
+.contato input[type="text"],
+.contato input[type="email"],
+.contato input[type="date"],
+.contato textarea {
+    width: calc(100% - 20px);
+    padding: 10px;
+    margin-bottom: 20px;
+    border-radius: 8px;
+    border: 1px solid rgba(0, 195, 203, 0.3);
+    background: rgba(255, 255, 255, 0.08);
+    color: var(--text-primary);
+    transition: all 0.3s ease;
+}
+
+.contato input:focus,
+.contato textarea:focus {
+    outline: none;
+    border-color: var(--primary);
+    box-shadow: 0 0 8px var(--primary-light);
+    background: rgba(0, 195, 203, 0.1);
+}
+
+.contato textarea {
+    resize: vertical;
+}
+
+/* Botões com gradiente da paleta */
+.contato button,
+.contato input[type="reset"] {
+    padding: 12px 25px;
+    border: none;
+    border-radius: 8px;
+    background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+    color: var(--light);
+    cursor: pointer;
+    font-size: 16px;
+    margin-right: 10px;
+    transition: all 0.3s ease;
+    font-weight: 600;
+}
+
+.contato button:hover,
+.contato input[type="reset"]:hover {
+    background: linear-gradient(135deg, var(--secondary), var(--secondary-dark));
+    box-shadow: 0 0 15px rgba(255, 107, 176, 0.4);
+}
+
+/* Gênero ajustado ao novo estilo */
+.gender {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+    color: var(--text-secondary);
+}
+
+.gender label span {
+    margin-left: 5px;
+}
+
+.contato hr {
+    margin-top: 20px;
+    border-color: rgba(0, 195, 203, 0.2);
+}
+
+/* From Uiverse.io by david-mohseni */ 
+.wrapper {
+  display: inline-flex;
+  list-style: none;
+  height: 120px;
+  width: 100%;
+   text-decoration: none;
+  padding-top: 40px;
+  font-family: "Poppins", sans-serif;
+  justify-content: center;
+}
+
+.wrapper .icon {
+  position: relative;
+  background: #2b5f86d2;
+  border-radius: 50%;
+  margin: 10px;
+  width: 80px;
+  height: 80px;
+  font-size: 18px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  box-shadow: 0 10px 10px rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+  transition: all 0.2s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+.wrapper .tooltip {
+  position: absolute;
+  top: 0;
+  font-size: 14px;
+  background: var(--light);
+  color: var(--light);
+  padding: 5px 8px;
+  border-radius: 5px;
+  box-shadow: 0 10px 10px rgba(0, 0, 0, 0.1);
+  opacity: 0;
+  pointer-events: none;
+  transition: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+.wrapper .tooltip::before {
+  position: absolute;
+  content: "";
+  height: 8px;
+  width: 8px;
+  background: var(--light);
+  bottom: -3px;
+  left: 50%;
+  transform: translate(-50%) rotate(45deg);
+  transition: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+.wrapper .icon:hover .tooltip {
+  top: -45px;
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+}
+
+.wrapper .icon:hover span,
+.wrapper .icon:hover .tooltip {
+  text-shadow: 0px -1px 0px rgba(0, 0, 0, 0.1);
+}
+
+.wrapper .gmail:hover,
+.wrapper .gmail:hover .tooltip,
+.wrapper .gmail:hover .tooltip::before {
+  background: #f14336;
+  color: var(--light);
+}
+.wrapper .github:hover,
+.wrapper .github:hover .tooltip,
+.wrapper .github:hover .tooltip::before {
+  background: #9400ff;
+  color: var(--light);
+}
+
+.wrapper .whatsapp:hover,
+.wrapper .whatsapp:hover .tooltip,
+.wrapper .whatsapp:hover .tooltip::before {
+  background: #40c451;
+  color: var(--light);
+}
+.wrapper .discord:hover,
+.wrapper .discord:hover .tooltip,
+.wrapper .discord:hover .tooltip::before {
+  background: #5865f2;
+  color: var(--light);
+}
+.wrapper .twitter:hover,
+.wrapper .twitter:hover .tooltip,
+.wrapper .twitter:hover .tooltip::before {
+  background: #1da1f2;
+  color: var(--light);
+}
+
+.wrapper .instagram:hover,
+.wrapper .instagram:hover .tooltip,
+.wrapper .instagram:hover .tooltip::before {
+  background: #f00871;
+  color: var(--light);
+}
+
+.redes {
+    width: 80%;
+    margin: 20px auto;
+    padding: 25px;
+    border-radius: 15px;
+    background: rgba(10, 26, 42, 0.7); /* fundo translúcido escuro */
+    box-shadow:
+        0 4px 20px rgba(0, 195, 203, 0.15),
+        inset 0 0 10px rgba(0, 195, 203, 0.1);
+    border: 1px solid rgba(0, 195, 203, 0.25);
+    backdrop-filter: blur(10px); /* glassmorphism */
+    text-align: center;
+    transition: all 0.3s ease;
+    color: var(--text-primary);
+}
+
+.redes:hover {
+    box-shadow:
+        0 6px 25px rgba(0, 195, 203, 0.25),
+        inset 0 0 15px rgba(0, 195, 203, 0.15);
+    transform: translateY(-2px);
+}
+
+.redes h3 {
+    margin: 20px 0;
+    color: var(--primary);
+}
+
+/* Lista de redes */
+.redes ul {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+}
+
+.redes ul li a img {
+    width: 50px;
+    height: 50px;
+    transition: all 0.3s ease;
+    filter: brightness(0) invert(1) sepia(1) saturate(5) hue-rotate(160deg); /* Ajuste inicial para cor da paleta */
+}
+
+/* Hover das logos */
+.redes ul li a img:hover {
+    transform: scale(1.1);
+    filter: brightness(1) drop-shadow(0 0 5px var(--primary))
+                        drop-shadow(0 0 10px var(--secondary));
+}
+
+.redes ul li a svg {
+    color: var(--primary); /* cor turquesa */
+    transition: all 0.3s ease;
+}
+
+.redes ul li a svg:hover {
+    color:#ffffff; /* turquesa claro no hover */
+    transform: scale(1.1);
+}

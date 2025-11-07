@@ -1,0 +1,38 @@
+/* Cursor Personalizado */
+.cursor {
+  width: 10px;
+  height: 10px;
+  background-color: #ffffff;
+  border-radius: 50%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  pointer-events: none;
+  z-index: 999;
+  mix-blend-mode: difference;
+  transform: translate(-50%, -50%);
+  transition: transform 0.1s ease;
+}
+
+.cursor-follower {
+  width: 30px;
+  height: 30px;
+  border: 2px solid #00c3cb;
+  border-radius: 50%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  pointer-events: none;
+  z-index: 998;
+  transform: translate(-50%, -50%);
+  transition: transform 0.3s ease, width 0.3s ease, height 0.3s ease;
+}
+.cursor.active {
+  transform: scale(1.8);
+  background-color: var #fff;
+}
+
+.cursor-follower.active {
+  transform: scale(1.4);
+  background-color: rgba(255, 255, 255, 0.3);
+}

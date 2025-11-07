@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sofia Tresse | Portfólio</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  
+  <link rel="stylesheet" href="./css/style.css">
+</head>
+<body>
+
+  <!-- Loader Animado -->
+ <div id="loading">
+  <div class="butterfly-container">
+    <!-- Partículas flutuantes -->
+    <div class="floating-particle"></div>
+    <div class="floating-particle"></div>
+    <div class="floating-particle"></div>
+    <div class="floating-particle"></div>
+    
+    <!-- GIF da borboleta -->
+    <div class="butterfly-gif">
+      <img src="./images/Butterfly.gif" alt="Borboleta animada">
+    </div>
+  </div>
+  <div class="butterfly-text">Carregando</div>
+</div>
+
+  <!-- Cursor Personalizado -->
+  <div class="cursor" id="cursor"></div>
+  <div class="cursor-follower" id="cursorFollower"></div>
+
+ 
+  <!-- Seção Hero -->
+  <section class="hero" id="home">
+    <div class="hero-content">
+      
+      <h1 class="glitch" data-text="Sofia_Tresse">Sofia Tresse</h1>
+      <p class="typewriter" data-text="Programadora, Ilustradora e Designer Criativa"></p>
+       <!-- Navegação 3D -->
+<div class="radio-inputs">
+  <label class="radio">
+    <input type="radio" name="nav-radio" checked />
+    <span class="name" data-link="./index.html" data-hover="Início">Início</span>
+  </label>
+  <label class="radio">
+    <input type="radio" name="nav-radio" />
+    <span class="name" data-link="./html/about.html" data-hover="Sobre">Sobre</span>
+  </label>
+  <label class="radio">
+    <input type="radio" name="nav-radio" />
+    <span class="name" data-link="./html/portifolio.html" data-hover="Projetos">Projetos</span>
+  </label>
+  <label class="radio">
+    <input type="radio" name="nav-radio" />
+    <span class="name" data-link="./html/contact.html" data-hover="Contato">Contato</span>
+  </label>
+</div>
+
+<!--cabo-->
+    </div>
+    <div class="hero-scroll">
+      <span>Scroll</span>
+      <div class="scroll-line"></div>
+    </div>
+    <div class="hero-pattern"></div>
+  </section>
+
+  <!-- Seção Sobre -->
+  <section class="about-section" id="about">
+    <div class="about-container">
+      <div class="about-image">
+  
+  <div class="svg-animations">
+    <!-- SVG 1 - Estrela -->
+    <svg class="floating-svg svg-1" viewBox="0 0 24 24" fill="none">
+      <path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z" 
+            fill="#00c3cb"/>
+    </svg>
+
+    <!-- SVG 2 - estrela -->
+    <svg class="floating-svg svg-2" viewBox="0 0 24 24" fill="none">
+      <path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z" 
+            fill="#00c3cb"/>
+    </svg>
+
+    <!-- SVG 3 - coração-->
+     <svg class="floating-svg svg-3" viewBox="0 0 24 24" fill="none">
+      <path d="M12 21.35L10.55 20.03C5.4 15.36 2 12.28 2 8.5C2 5.42 4.42 3 7.5 3C9.24 3 10.91 3.81 12 5.09C13.09 3.81 14.76 3 16.5 3C19.58 3 22 5.42 22 8.5C22 12.28 18.6 15.36 13.45 20.04L12 21.35Z" 
+            fill="#00c3cb"/>
+    </svg>
+   
+
+    <!-- SVG 5 - Coração (direita) -->
+    <svg class="floating-svg svg-5" viewBox="0 0 24 24" fill="none">
+      <path d="M12 21.35L10.55 20.03C5.4 15.36 2 12.28 2 8.5C2 5.42 4.42 3 7.5 3C9.24 3 10.91 3.81 12 5.09C13.09 3.81 14.76 3 16.5 3C19.58 3 22 5.42 22 8.5C22 12.28 18.6 15.36 13.45 20.04L12 21.35Z" 
+            fill="#00c3cb" />
+    </svg>
+
+    <!-- SVG 6 - Diamante (esquerda) -->
+    <svg class="floating-svg svg-6" viewBox="0 0 24 24" fill="none">
+      <path d="M12 2L19 9L12 16L5 9L12 2Z" 
+            stroke="#00c3cb" stroke-width="1.5" fill="none"/>
+    </svg>
+  </div>
+
+
+        <div class="image-wrapper">
+          <img src="./images/Euzinha.jpg" alt="Sofia Tresse">
+          <div class="tech-tags">
+            <span>React</span>
+            <span>Python</span>
+            <span>UI/UX</span>
+          </div>
+        </div>
+      </div>
+      <div class="about-content">
+        <h2><span>//</span> Sobre Mim</h2>
+        <p>Desenvolvedora full-stack com paixão por arte e tecnologia. Transforma ideias complexas em experiências digitais intuitivas e belas.</p>
+        
+        <div class="skills-grid">
+          <div class="skill-card">
+            <div class="skill-icon"><i class="fas fa-code"></i></div>
+            <h3>Front-end</h3>
+            <div class="skill-bar">
+              <div class="skill-progress" data-level="60%"></div>
+            </div>
+          </div>
+          <div class="skill-card">
+            <div class="skill-icon"><i class="fas fa-server"></i></div>
+            <h3>Back-end</h3>
+            <div class="skill-bar">
+              <div class="skill-progress" data-level="40%"></div>
+            </div>
+          </div>
+          <div class="skill-card">
+            <div class="skill-icon"><i class="fas fa-paint-brush"></i></div>
+            <h3>Design</h3>
+            <div class="skill-bar">
+              <div class="skill-progress" data-level="80%"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="about-decoration"></div>
+  </section>
+
+  <!-- Seção Projetos -->
+  <section class="work-section" id="work">
+    <div class="section-header">
+      <h2><span>#</span> Projetos Recentes</h2>
+      <p>Explore meu trabalho criativo</p>
+    </div>
+    
+    <div class="projects-grid">
+      <div class="project-card">
+        <div class="project-image">
+          <div class="project-overlay">
+            <h3>Jogo da Forca</h3>
+            <div class="project-links">
+              <a href="https://sofiatresse.github.io/JogoDaForca/"><i class="fas fa-external-link-alt"></i></a>
+            </div>
+          </div>
+        </div>
+        <div class="project-info">
+          <h3>Jogo de Forca Online</h3>
+          <p>Um clássico jogo de forca online para se divertir e aprender sobre o livro Vermelho, Branco e Sangue Azul!</p>
+          <div class="project-tags">
+            <span>HTML</span>
+            <span>Java Script</span>
+            <span>CSS</span>
+          </div>
+        </div>
+      </div>
+      
+      <div class="project-card">
+        <div class="project-image">
+          <div class="project-overlay">
+            <h3>Jogo de Descoberta de Livros</h3>
+            <div class="project-links">
+            
+              <a href="https://lyuri26.github.io/Scrum-jogo-semana-da-biblioteca-2024/"><i class="fas fa-external-link-alt"></i></a>
+            </div>
+          </div>
+        </div>
+        <div class="project-info">
+          <h3>Quiz</h3>
+          <p>um quiz divertido e interativo que ajuda você a descobrir qual livro combina com o seu momento! 💫
+Basta responder às perguntas e, no final, o jogo revelará sua próxima aventura literária</p>
+          <div class="project-tags">
+            <span>HTML</span>
+            <span>CSS</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <a href="./html/portifolio.html" class="view-more">Ver todos os projetos <i class="fas fa-arrow-right"></i></a>
+  </section>
+
+  <!-- Seção Contato -->
+  <section class="contact-section" id="contact">
+    <div class="contact-container">
+      <div class="contact-info">
+        <h2><span>&</span> Vamos conversar</h2>
+    
+        
+        <div class="social-links">
+          <a href="https://github.com/SofiaTresse" class="social-icon">
+            <i class="fab fa-github"></i>
+            <span>GitHub</span>
+          </a>
+          <a href="#" class="social-icon">
+            <i class="fab fa-linkedin"></i>
+            <span>LinkedIn</span>
+          </a>
+          <a href="https://www.instagram.com/sosofiats" class="social-icon">
+            <i class="fab fa-instagram"></i>
+            <span>Instagram</span>
+          </a>
+        </div>
+      </div>
+      
+      <form class="contact-form">
+        <div class="form-group">
+          <input type="text" placeholder="Seu nome" required>
+        </div>
+        <div class="form-group">
+          <input type="email" placeholder="Seu email" required>
+        </div>
+        <div class="form-group">
+          <textarea placeholder="Sua mensagem" required></textarea>
+        </div>
+        <button type="submit" class="submit-btn">
+          <span>Enviar Mensagem</span>
+          <i class="fas fa-paper-plane"></i>
+        </button>
+      </form>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="footer-content">
+      <div class="footer-logo">ST</div>
+      <p>© 2023 Sofia Tresse. Todos os direitos reservados.</p>
+      <div class="footer-links">
+        <a href="#">Termos</a>
+        <a href="#">Privacidade</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/gsap.min.js"></script>
+  <script src="./js/script.js"></script>
+</body>
+</html>
