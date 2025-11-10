@@ -26,7 +26,11 @@ body {
   color: var(--text-primary);
   overflow-x: hidden;
   min-height: 100vh;
+  /* ADICIONE ESTAS 2 LINHAS: */
+  display: flex;
+  flex-direction: column;
 }
+
 /* Loader Animado */
 /* Loader Patinhas de Gato */
 /* Loader Borboleta */
@@ -231,6 +235,7 @@ body {
   border: 1px solid rgba(0, 195, 203, 0.2);
   margin: 20px auto;
   margin-top: -7px;
+  
 }
 
 .radio-inputs .radio {
@@ -1105,6 +1110,7 @@ body {
 
 .contact-info {
   flex: 1;
+  max-width: 500px;
 }
 
 .contact-info h2 {
@@ -1162,10 +1168,22 @@ body {
 }
 
 .contact-form {
-  flex: 1;
   background-color: var(--gray);
-  padding: 40px;
-  border-radius: 15px;
+  padding: 40px; /* antes era 40px → mais espaçamento interno */
+  border-radius: 20px; /* cantos mais suaves */
+  max-width: 1000px; /* aumenta a largura total */
+  width: 100%;
+  margin: 0 auto; /* centraliza o formulário */
+  box-shadow: 0 0 30px rgba(0, 0, 0, 0.2); /* dá destaque */
+}
+
+#contato .container,
+.contact-container {
+  width: 100%;
+  max-width: 5000px; /* ou até mais, se quiser */
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
 }
 
 .form-group {
@@ -1216,13 +1234,23 @@ body {
   gap: 15px;
 }
 
-/* Footer */
+
+.main-wrapper {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
 footer {
   background-color: #0a0a0a;
   padding: 50px 20px;
   text-align: center;
+  width: 100%;
+  position: relative; /* ← muda de absolute pra relative */
+  bottom: 0;
+  left: 0;
+  margin-top: 100px; /* cria um espaço entre o formulário e o footer */
 }
-
 .footer-content {
   max-width: 1200px;
   margin: 0 auto;
