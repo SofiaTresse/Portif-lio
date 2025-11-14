@@ -366,14 +366,13 @@ nav ul li a:hover {
 
 .galeria {
     background-color: var(--card-bg);
-    margin-top: 10px;
-    margin-bottom: 10px;
-    margin-left: 500px;
-    margin-right: 500px;
+    margin: 20px auto; /* Centraliza automaticamente */
+    max-width: 1200px; /* Limite elegante para desktop */
     border-radius: 15px;
     padding: 20px;
     border: 1px solid rgba(0, 195, 203, 0.2);
 }
+
 
 .projects {
     display: flex;
@@ -473,11 +472,67 @@ nav ul li a:hover {
     color: var(--light);
 }
 
-/* Responsividade */
+
 @media (max-width: 768px) {
-    .galeria {
+  body {
+    padding-top: 2vh;
+  }
+  
+  header {
+    height: 20vh;
+  }
+  
+  .container-menu {
+    flex-direction: column;
+    justify-content: center;
+  }
+  
+  .logo {
+    width: 180px;
+    height: 150px;
+    margin-bottom: 15px;
+  }
+  .foto{
+    margin-top: 65px;
+  }
+  
+  nav ul {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  
+  nav ul li a {
+    padding: 8px 15px;
+    font-size: 0.9rem;
+  }
+  
+  .chart {
+    flex-direction: column;
+    height: auto;
+    align-items: center;
+  }
+  
+  .bar {
+    width: 80%;
+    height: 50px;
+    margin-bottom: 20px;
+    flex-direction: row;
+    align-items: center;
+  }
+  
+  .bar .fill {
+    height: 100%;
+    border-radius: 0 8px 8px 0;
+  }
+  
+  .timeline::before {
+    left: 30px;
+  }
+
+  .galeria {
         margin-left: 20px;
         margin-right: 20px;
+        margin-top: 30px;
     }
     
     .container-menu, .container {
@@ -491,4 +546,5 @@ nav ul li a:hover {
     nav ul li a {
         padding: 10px 15px;
     }
+    
 }

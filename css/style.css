@@ -174,8 +174,8 @@ body {
 /* Versão responsiva */
 @media (max-width: 768px) {
   .butterfly-gif {
-    width: 80px;
-    height: 80px;
+    width: 180px;
+    height: 190px;
   }
   
   .butterfly-text {
@@ -1022,13 +1022,17 @@ body {
   gap: 15px;
 }
 
-.project-links a {
-  color: #ffffff !important; /* BRANCO SÓLIDO */
-  font-size: 1.2rem;
-  transition: all 0.3s ease;
+.project-links a { 
+  display: inline-block;           /* permite definir tamanho */
+  padding: 15px 30px;              /* tamanho base do botão */
+  color: #ffffff !important;       /* texto branco */
+      /* cor de fundo do botão */
+  border-radius: 10px;             /* cantos arredondados */
+  font-size: 1.2rem;               /* tamanho do texto */
+  transition: all 0.3s ease;       /* suaviza animações */
   text-shadow: 0 2px 4px rgb(255, 255, 255);
+  text-decoration: none;
 }
-
 .project-links a:hover {
   color: var(--primary) !important;
   transform: scale(1.2);
@@ -1293,6 +1297,14 @@ footer p {
   .contact-container {
     flex-direction: column;
   }
+  .project-links a { 
+  max-width: 5000px;
+  color: #ffffff !important; /* BRANCO SÓLIDO */
+  font-size: 1.2rem;
+  transition: all 0.3s ease;
+  text-shadow: 0 2px 4px rgb(255, 255, 255);
+}
+
 }
 
 @media (max-width: 768px) {
@@ -1311,5 +1323,11 @@ footer p {
   
   .floating-nav {
     display: none;
+  }
+
+ .project-links a {
+    padding: 5px 5px;           /* aumenta o botão */
+    font-size: 2.5rem;            /* aumenta o texto */
+    border-radius: 12px;          /* deixa mais arredondado */
   }
 }

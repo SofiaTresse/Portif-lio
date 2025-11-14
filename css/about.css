@@ -219,12 +219,79 @@ nav ul li a:hover {
   position: relative;
   border: 1px solid rgba(0, 195, 203, 0.2);
 }
+.center-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 
+.curriculo {
+   display: inline-block;
+  position: relative;
+  padding: 1em 2em;
+  border: none;
+  border-radius: 5px;
+  font-weight: bold;
+  letter-spacing: 5px;
+  text-transform: uppercase;
+  cursor: pointer;
+  color: #2c9caf;
+  transition: all 1000ms;
+  font-size: 15px;
+  overflow: hidden;
+  outline: 2px solid #2c9caf;
+}
+
+.curriculo {
+  display: inline-block;       /* permite width/height/padding e transform */
+  position: relative;          /* necessário para o ::before absoluto */
+  overflow: hidden;            /* esconde a animação que sai da caixa */
+  padding: 10px 18px;
+  color: #ffffff;
+  background: transparent;
+  text-decoration: none;
+  border-radius: 8px;
+  transition: transform .25s ease, color .25s ease, outline .25s ease;
+  z-index: 0;                  /* mantém o link acima do ::before */
+}
+
+/* hover (com o ponto!) */
+.curriculo:hover {
+  color: #ffffff;
+  transform: scale(1.06);
+  outline: 2px solid #70bdca;
+  box-shadow: 4px 5px 17px -4px #268391;
+}
+
+/* pseudo-elemento que desliza por trás */
+.curriculo::before {
+  content: "";
+  position: absolute;
+  left: -50px;
+  top: 0;
+  width: 0;                    /* começa fechado */
+  height: 100%;
+  background-color: #2c9caf;
+  transform: skewX(45deg);
+  z-index: -1;                 /* fica atrás do texto */
+  transition: width 600ms ease;
+}
+
+/* quando hover, abre o background */
+.curriculo:hover::before {
+  width: 250%;
+}
+
+/* (opcional) suavizar leitura se precisar */
+.curriculo:focus {
+  outline: 3px solid rgba(44,156,175,0.25);
+  outline-offset: 3px;
+}
 
 /* Responsividade */
 @media (max-width: 768px) {
   body {
-    padding-top: 20vh;
+    padding-top: 2vh;
   }
   
   header {
@@ -237,14 +304,18 @@ nav ul li a:hover {
   }
   
   .logo {
-    width: 150px;
-    height: 100px;
+    width: 180px;
+    height: 150px;
     margin-bottom: 15px;
+  }
+  .foto{
+    margin-top: 65px;
   }
   
   nav ul {
     flex-wrap: wrap;
     justify-content: center;
+    font-size: 20px;
   }
   
   nav ul li a {
