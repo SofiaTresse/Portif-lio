@@ -4,25 +4,39 @@ document.addEventListener("DOMContentLoaded", () => {
 
   if (!cursor || !cursorFollower) return;
 
-  document.addEventListener("mousemove", (e) => {
-    // Cursor principal segue instantaneamente
-    cursor.style.left = e.clientX + "px";
-    cursor.style.top = e.clientY + "px";
+  // --- DESATIVAR CURSOR em telas pequenas ---
+  const isMobile = window.innerWidth <= 768;
 
-    // Follower com pequeno atraso para suavidade
+  if (isMobile) {
+    cursor.style.display = "none";
+    cursorFollower.style.display = "none";
+
+    // Remove qualquer posição anterior (evita bug)
+    cursor.style.left = "-9999px";
+    cursor.style.top = "-9999px";
+    cursorFollower.style.left = "-9999px";
+    cursorFollower.style.top = "-9999px";
+
+    return; // Para o script AQUI
+  }
+
+  // --- MODO DESKTOP ---
+
+  document.addEventListener("mousemove", (e) => {
+    cursor.style.transform = `translate(${e.clientX}px, ${e.clientY}px)`;
+    
     setTimeout(() => {
-      cursorFollower.style.left = e.clientX + "px";
-      cursorFollower.style.top = e.clientY + "px";
+      cursorFollower.style.transform = `translate(${e.clientX}px, ${e.clientY}px)`;
     }, 80);
   });
 
-  // Efeito ao passar por links, botões etc.
   const hoverTargets = document.querySelectorAll("a, button, .project-thumbnail");
   hoverTargets.forEach((el) => {
     el.addEventListener("mouseenter", () => {
       cursor.classList.add("active");
       cursorFollower.classList.add("active");
     });
+
     el.addEventListener("mouseleave", () => {
       cursor.classList.remove("active");
       cursorFollower.classList.remove("active");
